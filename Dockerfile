@@ -5,11 +5,10 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /tmp
 
 # Copy the .csproj and restore dependencies
-COPY *.csproj ./
 RUN dotnet restore
 
 # Copy the entire project and publish it
-COPY . ./
+COPY . .
 RUN dotnet publish -c Release -o out
 
 # Build the runtime image
