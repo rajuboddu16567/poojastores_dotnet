@@ -9,4 +9,4 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 as runtime
 WORKDIR /publish
 COPY --from=build-env /publish .
 EXPOSE 5000
-ENTRYPOINT ["dotnet", "myWebApp.dll"]
+ENTRYPOINT ["dotnet", "run", "--urls", "http://0.0.0.0:5000"]
